@@ -16,7 +16,8 @@ public class GameRunner {
         UserInputPrompt howManyPlayers = new UserInputPrompt("How many players for this game?");
         howManyPlayers.doPrompt();
 
-        GameConfig config = new GameConfig(Integer.getInteger(howManyPlayers.value()));
+        GameConfig config =
+                new GameConfig(Integer.parseInt(howManyPlayers.value()));
         Game game = new Game(config);
 
         for (int i = 0; i < config.getMinimumPlayers(); i++) {
@@ -30,10 +31,13 @@ public class GameRunner {
             switch (chooseAHand.value()) {
                 case "R":
                     newPlayer.choose(new Rock());
+                    break;
                 case "P":
                     newPlayer.choose(new Paper());
+                    break;
                 case "S":
                     newPlayer.choose(new Scissors());
+                    break;
                 default:
                     throw new IllegalArgumentException("Must be one of: [R]ock,[P]aper or [S]cissors");
             }
@@ -45,5 +49,6 @@ public class GameRunner {
         GameResult result = game.play();
 
         new UserInputPrompt(result.toString());
+        System.out.println(result);
     }
 }

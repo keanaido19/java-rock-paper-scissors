@@ -14,7 +14,9 @@ public class UserInputPrompt {
 
     public void doPrompt() {
         System.out.println(displayText);
-        value = scanner.nextLine();
+        if (scanner.hasNextLine()) {
+            value = scanner.nextLine();
+        }
     }
 
     public String value() {

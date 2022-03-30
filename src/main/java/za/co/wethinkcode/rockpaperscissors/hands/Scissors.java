@@ -11,4 +11,12 @@ public class Scissors extends Hand {
         }
         return 0;
     }
+
+    @Override
+    public Hand versus(Hand otherHand) {
+        if (compareTo(otherHand) > 0) {
+            return this;
+        }
+        return otherHand;
+    }
 }

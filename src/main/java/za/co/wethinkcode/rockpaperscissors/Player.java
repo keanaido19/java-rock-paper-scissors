@@ -2,6 +2,8 @@ package za.co.wethinkcode.rockpaperscissors;
 
 import za.co.wethinkcode.rockpaperscissors.hands.Hand;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +14,7 @@ public class Player {
 
     public void join(Game game) {
         this.currentGame = game;
+        game.addPlayerToGame(this);
     }
 
     public void choose(Hand hand) {
@@ -19,7 +22,13 @@ public class Player {
     }
 
     public List<Player> opponents() {
-        return List.of();
+        List<Player> players = new ArrayList<>() {};
+        for (Player player : currentGame.getPlayers()) {
+            if (!this.equals(player)) {
+                players.add(player);
+            }
+        }
+        return players;
     }
 
     public int getWins() {
@@ -28,5 +37,9 @@ public class Player {
 
     public void addWin() {
         wins = wins + 1;
+    }
+
+    public Hand getHand() {
+        return this.hand;
     }
 }
