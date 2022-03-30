@@ -1,5 +1,13 @@
 package za.co.wethinkcode.rockpaperscissors;
 
 public class GameConfig {
-    // TODO implement this
+    private final int numberOfPlayers;
+
+    public GameConfig(int numberOfPlayers) {
+        this.numberOfPlayers = numberOfPlayers;
+    }
+
+    public int getMinimumPlayers() {
+        return this.numberOfPlayers;
+    }
 }

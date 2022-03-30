@@ -11,15 +11,15 @@ public class Player {
     private int wins = 0;
 
     public void join(Game game) {
-        // TODO implement this
+        this.currentGame = game;
     }
 
     public void choose(Hand hand) {
-        // TODO implement this
+        this.hand = hand;
     }
 
     public List<Player> opponents() {
-        // TODO implement this
+        return List.of();
     }
 
     public int getWins() {

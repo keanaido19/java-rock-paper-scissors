@@ -7,5 +7,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Game {
-    // TODO Implement this
+    private final GameConfig gameConfig;
+
+    public Game(GameConfig gameConfig) {
+        this.gameConfig = gameConfig;
+    }
+
+    public GameResult play() {
+        return null;
+    }
 }
